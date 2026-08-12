@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e0, #ffeef3);
+            overflow: hidden;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 380px;
+            padding: 25px;
+            text-align: center;
+            background: rgba(255,255,255,0.9);
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            animation: muncul 1s ease;
+        }
+
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .foto {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #ff4f81;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .heart {
+            font-size: 35px;
+            animation: detak 1s infinite;
+        }
+
+        @keyframes detak {
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        button {
+            border: none;
+            padding: 13px 25px;
+            margin-top: 10px;
+            border-radius: 25px;
+            background: #ff4f81;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            background: #ff2f68;
+        }
+
+        #pesan {
+            display: none;
+            margin-top: 20px;
+            color: #ff4f81;
+            font-weight: bold;
+        }
+
+        /* Hati berjatuhan */
+        .love {
+            position: fixed;
+            top: -20px;
+            font-size: 20px;
+            animation: jatuh linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes jatuh {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="heart">❤️</div>
+
+        <img src="1000462232.jpg" class="foto">
+
+        <h1>Hai, Kamu! 🌷</h1>
+
+        <p>
+            Ada seseorang yang menurutku punya senyum
+            yang manis banget...
+        </p>
+
+        <p>
+            Dan orang itu ternyata kamu. 😊
+        </p>
+
+        <button onclick="tampilkanPesan()">
+            Buka Pesan 💌
+        </button>
+
+        <div id="pesan">
+            Aku cuma mau bilang...<br><br>
+            Kamu itu seseorang yang spesial. ❤️<br><br>
+            Semoga pesan kecil ini bisa bikin kamu tersenyum.
+        </div>
+
+    </div>
+
+    <script>
+        function tampilkanPesan() {
+            document.getElementById("pesan").style.display = "block";
+        }
+
+        // Membuat hati berjatuhan
+        function buatHati() {
+            const hati = document.createElement("div");
+
+            hati.className = "love";
+            hati.innerHTML = "❤️";
+
+            hati.style.left = Math.random() * 100 + "vw";
+            hati.style.animationDuration =
+                (3 + Math.random() * 4) + "s";
+
+            document.body.appendChild(hati);
+
+            setTimeout(() => {
+                hati.remove();
+            }, 7000);
+        }
+
+        setInterval(buatHati, 500);
+    </script>
+
+</body>
+</html>
